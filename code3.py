@@ -1,4 +1,3 @@
-# Richard Boamah | Lab 5 - Hashing Program | Fall 2023
 from tabulate import tabulate
 import hashlib
 
@@ -119,7 +118,7 @@ for password in unique_passwords:
     collisions = third_hash(password, hash_table_third)
     collisions_third += collisions
 
-# Step 4: Determine which hash function provides the least collisions
+# Step 5: Determine which hash function provides the least collisions
 
 def count_total_collisions():
     return collisions_sha256 + collisions_second + collisions_third
@@ -132,7 +131,7 @@ if collisions_second < total_collisions and collisions_second < collisions_third
 elif collisions_third < total_collisions and collisions_third < collisions_second:
     best_hash_function = "Third Hash Function"
 
-# Step 5: Create a text file explaining hash function collision results
+# Step 4: Create a text file explaining hash function collision results
 
 with open("hash_function_results.txt", "w") as results_file:
     results_file.write("Hash Function Collision Results:\n")
@@ -141,6 +140,8 @@ with open("hash_function_results.txt", "w") as results_file:
     results_file.write(f"- Third Hash Function Collisions: {collisions_third} collisions\n")
     results_file.write(f"The best hash function is {best_hash_function}\n")
     results_file.write(f"Total Collisions: {total_collisions}\n")
+
+# Step 6: Create a tabular table for the collision results
 
 collision_data = [
     ["SHA-256 Hash Function", collisions_sha256],
@@ -162,25 +163,41 @@ with open("collision_results.txt", "w") as results_file:
     results_file.write(collision_table)
 
 
+# Print the hash tables
+print("SHA-256 Hash Table:")
+for index, password in enumerate(hash_table_sha256):
+    print(f"Index {index}: {password}")
+
+print("Second Hash Table:")
+for index, password in enumerate(hash_table_second):
+    print(f"Index {index}: {password}")
+
+print("Third Hash Table:")
+for index, password in enumerate(hash_table_third):
+    print(f"Index {index}: {password}")
+
+
 # ... (previous code)
 
-# Display the hash tables
-def display_hash_table(hash_table, table_name):
-    print(f"\n{table_name}:")
-    for index, password in enumerate(hash_table):
-        if password is not None:
-            print(f"Index {index}: {password}")
-
-display_hash_table(hash_table_sha256, "SHA-256 Hash Table")
-display_hash_table(hash_table_second, "Second Hash Table")
-display_hash_table(hash_table_third, "Third Hash Table")
-
-# Print the collision results table again
+# Print the collision results table
 print("Collision Results:")
 print(collision_table)
+
+# Print the hash tables
+print("SHA-256 Hash Table:")
+for index, password in enumerate(hash_table_sha256):
+    print(f"Index {index}: {password}")
+
+print("Second Hash Table:")
+for index, password in enumerate(hash_table_second):
+    print(f"Index {index}: {password}")
+
+print("Third Hash Table:")
+for index, password in enumerate(hash_table_third):
+    print(f"Index {index}: {password}")
+
 
 # References:
 # - GeeksforGeeks - Introduction to Hashing (https://www.geeksforgeeks.org/introduction-to-hashing-data-structure-and-algorithm-tutorials/)
 # -  https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm
 # - ChatGPT AI - to Understand more and write some of the functions effectively
-
