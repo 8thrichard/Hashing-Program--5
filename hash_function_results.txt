@@ -1,5 +1,0 @@
-Hash Function Collision Results:
-- SHA-256 Hash Function Collisions: 543514 collisions
-- Second Hash Function Collisions: 539625 collisions
-- Third Hash Function Collisions: 49390048 collisions
-The best hash function is Second Hash Function
